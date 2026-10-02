@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://c6wc3rc0fofrs"]
+
+[ext_resource type="Script" uid="uid://cnbmoryypqinj" path="res://sense/main.gd" id="1_k0lk8"]
+[ext_resource type="Texture2D" uid="uid://bdj7hv35gk5gm" path="res://assets/image_0022.png" id="1_tb8t7"]
+[ext_resource type="FontFile" uid="uid://c1lwxlx8lv7d6" path="res://assets/dino.fnt" id="3_j6gj1"]
+[ext_resource type="PackedScene" uid="uid://d17d2ty1jjkex" path="res://sense/player.tscn" id="3_k0lk8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xydio"]
+
+[node name="Main" type="Node2D" unique_id=1855770790]
+script = ExtResource("1_k0lk8")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=386728916]
+repeat_size = Vector2(2400, 0)
+repeat_times = 4
+
+[node name="ground" type="Sprite2D" parent="Parallax2D" unique_id=1395667370]
+position = Vector2(12, 172)
+texture = ExtResource("1_tb8t7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1858913355]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=378593569]
+position = Vector2(0, 171)
+shape = SubResource("WorldBoundaryShape2D_xydio")
+
+[node name="CharacterBody2D" parent="." unique_id=275436218 instance=ExtResource("3_k0lk8")]
+position = Vector2(0, 100)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1402714711]
+position = Vector2(581, -111)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=662206292]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=2111971410]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -452.0
+offset_bottom = 64.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer" unique_id=657128456]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/HBoxContainer" unique_id=443418047]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_j6gj1")
+theme_override_font_sizes/font_size = 64
+text = "HI"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/VBoxContainer/HBoxContainer" unique_id=424288971]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+
+[node name="hi" type="Label" parent="UI/VBoxContainer/HBoxContainer" unique_id=178087629]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_j6gj1")
+theme_override_font_sizes/font_size = 64
+text = "0000000000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/VBoxContainer" unique_id=231056114]
+layout_mode = 2
+
+[node name="score" type="Label" parent="UI/VBoxContainer/HBoxContainer2" unique_id=2039650639]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_j6gj1")
+theme_override_font_sizes/font_size = 64
+text = "0000000000"
+
+[node name="Button" type="Button" parent="UI" unique_id=703689092]
+custom_minimum_size = Vector2(400, 150)
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 450.0
+offset_bottom = 146.0
+theme_override_font_sizes/font_size = 64
+text = "设置"
+
+[node name="killer" type="Node" parent="." unique_id=1267894170]
+
+[node name="Retry" type="CanvasLayer" parent="." unique_id=498289699]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="Retry" unique_id=776139534]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Retry/PanelContainer" unique_id=528003776]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Retry/PanelContainer/CenterContainer" unique_id=1831402209]
+layout_mode = 2
+
+[node name="gameover" type="Label" parent="Retry/PanelContainer/CenterContainer/VBoxContainer" unique_id=1608001568]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "游戏结束"
+
+[node name="score" type="Label" parent="Retry/PanelContainer/CenterContainer/VBoxContainer" unique_id=1785288770]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "分数:0
+最高:0"
+horizontal_alignment = 1
+
+[node name="prop" type="Label" parent="Retry/PanelContainer/CenterContainer/VBoxContainer" unique_id=1264793958]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34108615, 0.34108615, 0.34108615, 1)
+theme_override_font_sizes/font_size = 48
+
+[node name="Button" type="Button" parent="Retry/PanelContainer/CenterContainer/VBoxContainer" unique_id=152919250]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "重试"
+
+[node name="settings" type="CanvasLayer" parent="." unique_id=1436123187]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="settings" unique_id=1266767827]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="settings/PanelContainer" unique_id=31823396]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings/PanelContainer/CenterContainer" unique_id=316161879]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="settings/PanelContainer/CenterContainer/VBoxContainer" unique_id=26455945]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1080018363]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "基础速度："
+
+[node name="card" type="SpinBox" parent="settings/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1607957116]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+min_value = 200.0
+max_value = 9999.0
+step = 50.0
+value = 200.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="settings/PanelContainer/CenterContainer/VBoxContainer" unique_id=1902194431]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=596261892]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "初始难度："
+
+[node name="ext" type="SpinBox" parent="settings/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer2" unique_id=920349517]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 24.0
+step = 0.1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="settings/PanelContainer/CenterContainer/VBoxContainer" unique_id=768848891]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer3" unique_id=355249090]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "跳跃高度："
+
+[node name="jmp" type="SpinBox" parent="settings/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer3" unique_id=1627071161]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+min_value = 400.0
+max_value = 9999.0
+step = 50.0
+value = 700.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="settings/PanelContainer/CenterContainer/VBoxContainer" unique_id=429043329]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer4" unique_id=998083772]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "生成时间："
+
+[node name="min" type="SpinBox" parent="settings/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer4" unique_id=664333918]
+layout_mode = 2
+min_value = 0.5
+max_value = 10.0
+step = 0.5
+value = 2.5
+
+[node name="Label2" type="Label" parent="settings/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer4" unique_id=1267268144]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "-"
+
+[node name="max" type="SpinBox" parent="settings/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer4" unique_id=624403528]
+layout_mode = 2
+min_value = 1.0
+max_value = 60.0
+step = 0.5
+value = 3.0
+
+[node name="Button" type="Button" parent="settings/PanelContainer/CenterContainer/VBoxContainer" unique_id=358897912]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "以此设置重新开始游戏"
+
+[node name="back" type="Button" parent="settings/PanelContainer/CenterContainer/VBoxContainer" unique_id=1161046043]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "返回"
+
+[node name="warning" type="Label" parent="settings/PanelContainer/CenterContainer" unique_id=1353920507]
+visible = false
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 500)
+theme_override_font_sizes/font_size = 64
+text = "生成时间最大值不应大于最小值"
+
+[connection signal="pressed" from="UI/Button" to="." method="_on_setting"]
+[connection signal="pressed" from="Retry/PanelContainer/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="settings/PanelContainer/CenterContainer/VBoxContainer/Button" to="." method="_restart_with_current_settings"]
+[connection signal="pressed" from="settings/PanelContainer/CenterContainer/VBoxContainer/back" to="." method="_on_back_pressed"]

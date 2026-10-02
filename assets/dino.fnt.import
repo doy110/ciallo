@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://c1lwxlx8lv7d6"
+path="res://.godot/imported/dino.fnt-b0394559a84454c0aa5a3061e78ab94b.fontdata"
+
+[deps]
+
+source_file="res://assets/dino.fnt"
+dest_files=["res://.godot/imported/dino.fnt-b0394559a84454c0aa5a3061e78ab94b.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2
